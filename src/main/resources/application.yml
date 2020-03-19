@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://39.104.60.138:3308/zh_data?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application: ###起个名字作为服务名称(该服务注册到eureka注册中心的名称，比如商品服务)
+    name: app-order
+
+###服务注册到eureka注册中心的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://zpc:123456@127.0.0.1:8100/eureka
+    ###因为该应用为服务提供者，是eureka的一个客户端，需要注册到注册中心
+    register-with-eureka: true
+    ###是否需要从eureka上检索服务
+    fetch-registry: true
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.live.entity
+
+myspcloud:
+  url: http://127.0.0.1:8080/getModel/
+
+
+

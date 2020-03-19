@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.live.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.live.entity.Order" autoMapping="true">
+        <id column="orderId" property="orderId"></id>
+    </resultMap>
+
+    <select id="Sel" resultMap="BaseResultMap">
+        select * from `order` where orderId = #{orderId}
+    </select>
+</mapper>
